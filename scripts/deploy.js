@@ -1,6 +1,3 @@
-// scripts/deploy.js
-//const ethers = require("ethers")
-
 //const { ethers, JsonRpcProvider } = require('ethers');smooth search vanish hollow sustain action horse tongue scorpion fantasy sense mix
 
 require("dotenv").config();

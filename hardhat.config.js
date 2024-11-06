@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("dotenv").config();
 
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -9,9 +10,10 @@ module.exports = {
     networks: {
 
       mainnet: {
-          url: "https://mainnet.infura.io/v3/cd6b7e076c7a466eab4c8cf1086ce9e4", // Votre endpoint Infura
-          accounts: ["0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b"] // Remplacez par votre clé privée
-      }
+          url: "https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}", // Votre endpoint Infura
+          account: [`${process.env.PRIVATE_KEY}`] // Remplacez par votre clé privée
+          
+        }
   
     }
 

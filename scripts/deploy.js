@@ -1,20 +1,28 @@
 // scripts/deploy.js
+//const ethers = require("ethers")
+
+//const { ethers, JsonRpcProvider } = require('ethers');smooth search vanish hollow sustain action horse tongue scorpion fantasy sense mix
+
+require("dotenv").config();
+const { ethers } = require("hardhat");
 const hre = require("hardhat")
+
 //import { hre } from "hardhat";
 
 
 async function main() {
+    
     // Définir la clé privée de votre portefeuille
-    const privateKey = "0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b"; // Remplacez par votre clé privée
+    const privateKey = `${process.env.PRIVATE_KEY}`; // Remplacez par votre clé privée
 
     // Créer un fournisseur avec Infura
-    const provider = new hre.ethers.providers.JsonRpcProvider("https://mainnet.infura.io/v3/58e31aec08034ea59d22ba0d7f72ce97");
+    const provider = new ethers.providers.JsonRpcProvider(`https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`);
     
     // Créer un wallet à partir de la clé privée
-    const wallet = new hre.ethers.Wallet(privateKey, provider);
+    const wallet = new ethers.Wallet(privateKey, provider);
 
     // Obtenir le contrat factory
-    const MySaving = await hre.ethers.getContractFactory("MySaving", wallet);
+    const MySaving = await ethers.getContractFactory("MySaving", wallet);
 
     // Déployer le contrat
     const mySaving = await MySaving.deploy();
